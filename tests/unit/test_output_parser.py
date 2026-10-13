@@ -103,10 +103,7 @@ class TestOutputParser:
                     "languages": ["Python", "JavaScript"],
                     "suggestions": ["Add Rust", "Learn Kubernetes"],
                 },
-                "soft_skills": {
-                    "communication": "Good",
-                    "suggestions": ["Improve documentation"],
-                },
+                "soft_skills": {"communication": "Good", "suggestions": ["Improve documentation"]},
                 "projects": {"quality": "High", "suggestions": []},
             }
         )
@@ -220,10 +217,7 @@ class TestOutputParser:
             {
                 "feedback": {
                     "technical": {
-                        "skills": {
-                            "primary": ["Python", "JavaScript"],
-                            "secondary": ["Rust", "Go"],
-                        }
+                        "skills": {"primary": ["Python", "JavaScript"], "secondary": ["Rust", "Go"]}
                     }
                 }
             }
@@ -284,11 +278,4 @@ class TestOutputParser:
         assert isinstance(result, list)
 
     def test_no_suggestions_key(self):
-        """Test JSON without suggestions key."""
-        raw_output = json.dumps({"skills": "Python expert", "experience": "5 years"})
-
-        result = parse_review_output(raw_output)
-
-        assert isinstance(result, list)
-        for section in result:
-            assert isinstance(section.suggestions, list)
+        """Test JSON w

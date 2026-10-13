@@ -83,10 +83,7 @@ def _parse_json_output(data: dict) -> list[FeedbackSection]:
             )
         else:
             section = FeedbackSection(
-                section_name=key,
-                content=str(value),
-                confidence=0.85,
-                suggestions=[],
+                section_name=key, content=str(value), confidence=0.85, suggestions=[]
             )
         sections.append(section)
 
@@ -105,10 +102,7 @@ def _parse_plaintext_output(raw: str) -> list[FeedbackSection]:
     """
     # Treat entire text as a single feedback section
     section = FeedbackSection(
-        section_name="general_feedback",
-        content=raw,
-        confidence=0.7,
-        suggestions=[],
+        section_name="general_feedback", content=raw, confidence=0.7, suggestions=[]
     )
 
     logger.info("plaintext_output_parsed", content_length=len(raw))
